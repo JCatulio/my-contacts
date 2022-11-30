@@ -13,8 +13,36 @@ export default function ContactForm({ buttonLabel }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState('');
+  const [errors, setErrors] = useState([]);
 
-  function handleSubmit() {
+  function handleNameChange(event) {
+    setName(event.target.value);
+
+    if (!event.target.value) {
+      setErrors((prevState) => [
+        ...prevState,
+        { field: 'name', message: 'Nome é obrigatório.' },
+      ]);
+    } else {
+      setErrors((prevState) =>
+        prevState.filter((error) => error.field !== 'name'),
+      );
+    }
+  }
+
+  console.log(errors);
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+  function handlePhoneChange(event) {
+    setPhone(event.target.value);
+  }
+  function handleCategoryChange(event) {
+    setCategory(event.target.value);
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
 
     console.log({
@@ -28,18 +56,14 @@ export default function ContactForm({ buttonLabel }) {
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Input
-          placeholder="Nome"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
+        <Input placeholder="Nome" value={name} onChange={handleNameChange} />
       </FormGroup>
 
       <FormGroup>
         <Input
           placeholder="E-mail"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={handleEmailChange}
         />
       </FormGroup>
 
@@ -47,15 +71,12 @@ export default function ContactForm({ buttonLabel }) {
         <Input
           placeholder="Telefone"
           value={phone}
-          onChange={(event) => setPhone(event.target.value)}
+          onChange={handlePhoneChange}
         />
       </FormGroup>
 
       <FormGroup>
-        <Select
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
-        >
+        <Select value={category} onChange={handleCategoryChange}>
           <option value="">Categoria</option>
           <option value="Instagram">Instagram</option>
           <option value="Discord">Discord</option>
