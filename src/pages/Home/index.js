@@ -46,7 +46,7 @@ export default function Home() {
               <img src={edit} alt="Edit" />
             </Link>
             <button type="button">
-              <img src={trash} alt="Trash" />
+              <img src={trash} alt="Delete" />
             </button>
           </div>
         </Card>
@@ -54,3 +54,11 @@ export default function Home() {
     </Container>
   );
 }
+
+fetch('http://localhost:3000')
+  .then((response) => {
+    console.log('response', response);
+  })
+  .catch((error) => {
+    console.log('erro', error);
+  });
