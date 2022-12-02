@@ -55,10 +55,25 @@ export default function Home() {
   );
 }
 
-fetch('http://localhost:3001/contacts')
+fetch('http://localhost:3001/contacts', {
+  method: 'DELETE',
+  headers: new Headers({
+    'X-App-ID': '123',
+  }),
+})
   .then((response) => {
     console.log('response', response);
   })
   .catch((error) => {
     console.log('erro', error);
   });
+
+//? SOP -> Same Origin Policy -> Política de mesma origem
+//? CORS -> Cross-Origin Resource Sharing -> Compartilhamento de recursos entre origens diferentes
+//? Origem: protocolo://domínio:porta
+
+//?   Saída: http://localhost:3000
+//? Destino: http://localhost:3001
+
+//? Preflight -> Pré-voô
+//? OPTIONS http://localhost:3001/contacts
