@@ -31,7 +31,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-empty": [
-      "error",
+      2,
       {
         "allowEmptyCatch": true
       }
