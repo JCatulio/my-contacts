@@ -27,7 +27,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
   const isFormValid = name && errors.length === 0;
 
   useEffect(() => {
-    async function LoadCategories() {
+    async function loadCategories() {
       try {
         const categoriesList = await CategoriesService.listCategories();
 
@@ -38,7 +38,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
       }
     }
 
-    LoadCategories();
+    loadCategories();
   }, []);
 
   function handleNameChange(event) {
@@ -113,11 +113,11 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
         >
           <option value="">Sem categoria</option>
 
-          {categories.map((category) => {
+          {categories.map((category) => (
             <option key={category.id} value={category.id}>
               {category.name}
-            </option>;
-          })}
+            </option>
+          ))}
         </Select>
       </FormGroup>
 
