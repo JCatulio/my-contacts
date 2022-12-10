@@ -13,7 +13,6 @@ import Input from '../Input';
 import Select from '../Select';
 import Button from '../Button';
 
-
 export default function ContactForm({ buttonLabel, onSubmit }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -23,7 +22,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { setError, removeError, getErrorMessageByFieldName, errors } =
+  const { errors, setError, removeError, getErrorMessageByFieldName } =
     useErrors();
 
   const isFormValid = name && errors.length === 0;
@@ -79,7 +78,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
     await onSubmit({ name, email, phone, categoryId });
 
     setIsSubmitting(false);
-    setName(''),
+    setName('');
     setEmail('');
     setPhone('');
     setCategoryId('');
