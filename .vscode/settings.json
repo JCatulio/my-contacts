@@ -1,5 +1,12 @@
 {
   "cSpell.words": [
     "addtoast"
+  ],
+  "cSpell.enableFiletypes": [
+    "jsx",
+    "jsx-attr",
+    "jsx-tags",
+    "sass",
+    "tailwindcss"
   ]
 }
