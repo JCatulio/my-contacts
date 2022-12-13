@@ -44,7 +44,7 @@ export default function useHome() {
     setOrderBy((prevState) => (prevState === 'asc' ? 'desc' : 'asc'));
   }
 
-  function handleSearchTermChange(event) {
+  function handleChangeSearchTerm(event) {
     setSearchTerm(event.target.value);
   }
 
@@ -96,7 +96,7 @@ export default function useHome() {
     handleConfirmDeleteContact,
     contacts,
     searchTerm,
-    handleSearchTermChange,
+    handleChangeSearchTerm,
     hasError,
     filteredContacts,
     handleTryAgain,
