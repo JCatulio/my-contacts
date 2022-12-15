@@ -1,6 +1,6 @@
 # My Contacts - Project
 
-The app trys to replicate a Agenda, where you can create new contacts, edit, and delete them.\
+The app try's to replicate a Agenda, where you can create new contacts, edit, and delete them.\
 This project has been created following the course made by [Mateus Silva](https://github.com/maateusilva), available for buy on this page [JStack](https://jstack.com.br/).
 
 # Getting Started with Create React App
