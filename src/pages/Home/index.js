@@ -15,6 +15,7 @@ import ContactsList from './components/ContactsList';
 
 export default function Home() {
   const {
+    isPending,
     isLoading,
     isDeleteModalVisible,
     isLoadingDelete,
@@ -56,6 +57,7 @@ export default function Home() {
 
       {hasContacts && (
         <>
+          {isPending}
           <ContactsList
             filteredContacts={filteredContacts}
             orderBy={orderBy}
